@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,33 +10,44 @@
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #f4f4f4;
-            padding: 30px;
+            padding: 20px;
         }
         .logo {
-            width: 120px;
-            height: 120px;
+            width: 300px;
+            max-width: 90%;
             border-radius: 20px;
-            margin-bottom: 15px;
+            margin: 10px 0;
         }
-        h1 {
-            color: #006600; /* RAJA Green */
-            margin: 5px 0;
-        }
-        h2 {
-            color: #333;
-            margin: 5px 0;
+        h1 { color: #006600; margin: 5px 0; }
+        h2 { color: #333; margin: 5px 0; }
+        .btn {
+            display: inline-block;
+            background: #006600;
+            color: white;
+            padding: 12px 25px;
+            margin: 8px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <!-- LOGO SECTION -->
-    <img src="https://via.placeholder.com/120/006600/FFFFFF?text=RAJA" alt="RAJA Logo" class="logo">
+    <!-- LOGO -->
+    <img src="logo.png" alt="RAJA Logo" class="logo">
 
     <h1>RAJA</h1>
     <h2>RoadSide Assistance JA</h2>
     
     <p><b>AI-Driven Roadside Help</b> for all of Jamaica &#127464;&#127468;</p>
-    <p>Stuck? Contact RAJA. Our AI instantly links drivers to the closest verified mechanic or tow truck.</p>
+    <p>Stuck? Tap a service below. Our AI links you to the closest help.</p>
+
+    <!-- SERVICE BUTTONS -->
+    <a href="#" class="btn">TOW</a>
+    <a href="#" class="btn">FUEL</a>
+    <a href="#" class="btn">EMERGENCY</a>
+    <a href="#" class="btn">OTHER</a>
+
 </body>
 </html>
