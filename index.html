@@ -71,8 +71,8 @@ h2 { color: #333; margin: 5px 0; }
 <div m
 <div class="btns">
   <!-- 1. Get Help Now - scrolls to form -->
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSe37ebydAGgG8dr_gAdLoQsS8M4y4AzgpGrrrOSKfTo3Hmg7Q/viewform" target="_blank" class="btn">Get Help Now</a>
-   <a href="tel:+1876-555-RAJA" class="btn">Call 
+  <button id="getLocationTop" class="btn">Get Help Now</button>
+   
 </div>
 <a href="whatsapp://send?phone=18765565547&text=Hi%20RAJA%20I%20need%20roadside%20help" class="btn">WhatsApp Us</a>
 <!-- This is what "Get Help Now" scrolls to -->
@@ -97,7 +97,10 @@ h2 { color: #333; margin: 5px 0; }
   <span>St James</span><span>St Ann</span><span>Westmoreland</span>
   <span>Hanover</span><span>Trelawny</span><span>Portland</span>
   <script>
-document.getElementById('getLocation').onclick = function() {
+  
+     document.getElementById('getLocationTop').onclick = document.getElementById('getLocation').onclick;
+     document.getElementById('getLocation').onclick = function() {
+     
   if (navigator.geolocation) {
     document.getElementById('locationResult').innerHTML = "Getting your location...";
     navigator.geolocation.getCurrentPosition(function(position) {
