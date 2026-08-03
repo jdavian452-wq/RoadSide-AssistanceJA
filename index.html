@@ -73,14 +73,7 @@ h2 { color: #333; margin: 5px 0; }
 <div class="btns">
   <!-- 1. Get Help Now - scrolls to form -->
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSe37ebydAGgG8dr_gAdLoQsS8M4y4AzgpGrrrOSKfTo3Hmg7Q/viewform" target="_blank" class="btn">Get Help Now</a>
-
- 
-    
-    
-
-
-18769949171 <a href="tel:+1876-555-RAJA" class="btn">Call 
-
+   <a href="tel:+1876-555-RAJA" class="btn">Call 
 </div>
 <a href="whatsapp://send?phone=18765565547&text=Hi%20RAJA%20I%20need%20roadside%20help" class="btn">WhatsApp Us</a>
 <!-- This is what "Get Help Now" scrolls to -->
@@ -95,20 +88,45 @@ style="background:#2D5366; color:white; border:none; padding:18px 25px; font-siz
 📱 TAP FOR WHATSAPP HELP NEAR YOU
 </a>
 </div>
-
+<h2 style="text-align:center; margin-top:30px;">WE SERVICE ALL 14 PARISHES</h2>
+<div class="parish-names">
+  <span>Kingston</span><span>St Andrew</span><span>St Catherine</span>
+  <span>Manchester</span><span>St Elizabeth</span><span>Clarendon</span>
+  <span>St James</span><span>St Ann</span><span>Westmoreland</span>
+  <span>Hanover</span><span>Trelawny</span><span>Portland</span>
+  <span>St Mary</span><span>St Thomas</span>
+</div>
+   <div style="text-align:center; margin:20px 0;">
+  <button id="getLocation" style="background:#25D366; color:white; border:none; padding:12px 20px; border-radius:25px; font-weight:bold; font-size:16px; cursor:pointer;">
+    📍 USE MY LOCATION
+  </button>
+  <p id="locationResult" style="font-size:14px; margin-top:10px; color:#2D5366;"></p>
+</div>
+  <h2 style="text-align:center; margin-top:30px;">WE SERVICE ALL 14 PARISHES</h2>
   
-  
-
-  
-
 
 <head>
   <meta charset="UTF-8">
   <title>RAJA</title>
   <link rel="stylesheet" href="style.css">
 
-  <!-- PASTE IT RIGHT HERE 👇 -->
-  <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="907aaf8e-9d61-4334-8574-8cf212643421";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
-
-</head> <!-- RIGHT ABOVE THIS LINE -->
+  <script>
+document.getElementById('getLocation').onclick = function() {
+  if (navigator.geolocation) {
+    document.getElementById('locationResult').innerText = "Getting your location...";
+    navigator.geolocation.getCurrentPosition(function(position) {
+      let lat = position.coords.latitude.toFixed(4);
+      let lon = position.coords.longitude.toFixed(4);
+      document.getElementById('locationResult').innerText = "Location found: " + lat + ", " + lon;
+      alert("Got your location! Please paste these coordinates in the Google Form notes: " + lat + ", " + lon);
+    }, function() {
+      alert("Could not get location. Please type your address manually.");
+    });
+  } else {
+    alert("Your browser doesn't support location.");
+  }
+}
+</script>
+  
+</head> 
         
