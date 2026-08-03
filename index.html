@@ -81,11 +81,14 @@ h2 { color: #333; margin: 5px 0; }
   
 <!-- RAJA MAIN FORM BUTTON -->
 <div style="text-align:center; padding:20px; font-family:Arial;">
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSe37ebydAGgG8dr_gAdLoQsS8M4y4AzgpGrrrOSKfTo3Hmg7Q/viewform" 
-target="_blank"
-style="background:#2D5366; color:white; border:none; padding:18px 25px; font-size:18px; font-weight:bold; border-radius:8px; text-decoration:none; display:inline-block;">
-📱 TAP FOR WHATSAPP HELP NEAR YOU
-</a>
+<!-- RAJA GPS BUTTON -->
+<div style="text-align:center; padding:20px;">
+<button id="getLocation" class="btn" style="background:#2D5366; padding:18px 25px; font-size:18px;">
+📍 USE MY LOCATION
+</button>
+<p id="locationResult" style="margin-top:10px; font-size:14px; color:#000;"></p>
+</div>
+
 </div>
 <h2 style="text-align:center; margin-top:30px;">WE SERVICE ALL 14 PARISHES</h2>
 <div class="parish-names">
@@ -93,30 +96,24 @@ style="background:#2D5366; color:white; border:none; padding:18px 25px; font-siz
   <span>Manchester</span><span>St Elizabeth</span><span>Clarendon</span>
   <span>St James</span><span>St Ann</span><span>Westmoreland</span>
   <span>Hanover</span><span>Trelawny</span><span>Portland</span>
-  
-   <head>
-  <meta charset="UTF-8">
-  
-  <title>RAJA</title>
-  <link rel="stylesheet" href="style.css">
-
   <script>
 document.getElementById('getLocation').onclick = function() {
   if (navigator.geolocation) {
-    document.getElementById('locationResult').innerText = "Getting your location...";
+    document.getElementById('locationResult').innerHTML = "Getting your location...";
     navigator.geolocation.getCurrentPosition(function(position) {
-      let lat = position.coords.latitude.toFixed(4);
-      let lon = position.coords.longitude.toFixed(4);
-      document.getElementById('locationResult').innerText = "Location found: " + lat + ", " + lon;
-      alert("Got your location! Please paste these coordinates in the Google Form notes: " + lat + ", " + lon);
+      let lat = position.coords.latitude.toFixed(5);
+      let lon = position.coords.longitude.toFixed(5);
+      let mapsLink = "https://maps.google.com/?q=" + lat + "," + lon;
+      document.getElementById('locationResult').innerHTML = 
+      "📍 Lat: " + lat + "<br>📍 Lng: " + lon + 
+      "<br><a href='https://wa.me/18765556554?text=RAJA%20Help%20me%20at:%20" + mapsLink + "' target='_blank' style='color:#006600; font-weight:bold;'>Send Location to RAJA on WhatsApp</a>";
     }, function() {
-      alert("Could not get location. Please type your address manually.");
+      alert("Please allow location permission");
     });
   } else {
-    alert("Your browser doesn't support location.");
+    alert("GPS not supported on this phone");
   }
 }
 </script>
-  
-</head> 
+   
         
