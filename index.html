@@ -8,16 +8,17 @@
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: Arial, sans-serif; background: #f4f4f4; }
+.container { max-width: 500px; margin: 0 auto; background: white; padding: 15px 0 20px 0; text-align: center; } /* REMOVED min-height: 100vh */
+
+.banner { width: 100%; max-width: 300px; margin: 0 auto 10px auto; display: block; } /* Made banner smaller to fit */
 h1 { color: #d32f2f; font-size: 20px; margin: 10px 15px 15px 15px; }
-<img src="logo.png" alt="RAJA Logo" class="logo">
+
 .btn { display: block; width: 90%; margin: 10px auto; padding: 18px; border-radius: 10px; color: white; text-decoration: none; font-weight: bold; font-size: 17px; }
-.btn:hover { opacity: 0.9; }
 .whatsapp { background: #25D366; }
 .call { background: #007BFF; }
 
 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 15px; }
 .box { padding: 22px 10px; border-radius: 12px; font-size: 16px; font-weight: bold; cursor: pointer; border: 2px solid; background: white; }
-.box:active { transform: scale(0.97); } /* so you know button clicked */
 .towing { border-color: #ff9999; color: #d32f2f; }
 .fuel { border-color: #ffcc66; color: #e65100; }
 .battery { border-color: #66cc66; color: #2e7d32; }
@@ -48,11 +49,11 @@ h1 { color: #d32f2f; font-size: 20px; margin: 10px 15px 15px 15px; }
   <a href="tel:+18769605738" class="btn call">Call Dispatch: 876-960-5738</a>
 
   <div class="grid">
-    <button type="button" class="box towing" onclick="openList('tow')">🚛<br>Towing</button>
-    <button type="button" class="box fuel" onclick="openList('fuel')">⛽<br>Fuel</button>
-    <button type="button" class="box battery" onclick="openList('battery')">🔋<br>Battery</button>
-    <button type="button" class="box tire" onclick="openList('tyre')">🛞<br>Flat Tire</button>
-    <button type="button" class="box mechanic" onclick="openList('mechanic')">🔧<br>Mechanic</button>
+    <button class="box towing" onclick="openList('tow')">🚛<br>Towing</button>
+    <button class="box fuel" onclick="openList('fuel')">⛽<br>Fuel</button>
+    <button class="box battery" onclick="openList('battery')">🔋<br>Battery</button>
+    <button class="box tire" onclick="openList('tyre')">🛞<br>Flat Tire</button>
+    <button class="box mechanic" onclick="openList('mechanic')">🔧<br>Mechanic</button>
   </div>
 </div>
 
@@ -104,8 +105,8 @@ function openList(category) {
       <div class="info">📍 ${p.parish} | ${p.phone}</div>
       <div class="contact-btns">
         <a href="tel:${p.phone}" class="phone-call">📞 Phone Call</a>
-        <a href="https://wa.me/${p.phone}" target="_blank" class="wa-chat">💬 WhatsApp Chat</a>
-        <a href="https://wa.me/${p.phone}" target="_blank" class="wa-call">📱 WhatsApp Call</a>
+        <a href="https://wa.me/${p.phone}" class="wa-chat">💬 WhatsApp Chat</a>
+        <a href="https://wa.me/${p.phone}" class="wa-call">📱 WhatsApp Call</a>
       </div>
     </div>`;
   });
