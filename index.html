@@ -1,2 +1,123 @@
 <img src="logo.png" alt="RAJA Logo" class="logo">
 
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAJA Roadside Assistance JA</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background: #f4f4f4; }
+.container { max-width: 500px; margin: 0 auto; background: white; padding: 15px 0 40px 0; text-align: center; min-height: 100vh; }
+h1 { color: #d32f2f; font-size: 22px; margin: 10px 15px 20px 15px; }
+.btn { display: block; width: 90%; margin: 12px auto; padding: 18px; border-radius: 10px; color: white; text-decoration: none; font-weight: bold; font-size: 17px; }
+.whatsapp { background: #25D366; }
+.call { background: #007BFF; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 15px; }
+.box { padding: 22px 10px; border-radius: 12px; font-size: 16px; font-weight: bold; cursor: pointer; border: 2px solid; background: white; }
+.towing { border-color: #ff9999; color: #d32f2f; }
+.fuel { border-color: #ffcc66; color: #e65100; }
+.battery { border-color: #66cc66; color: #2e7d32; }
+.tire { border-color: #6699ff; color: #1565c0; }
+.mechanic { border-color: #888; color: #424242; grid-column: span 2; }
+#modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; padding: 15px; }
+.modal-content { background: white; padding: 20px; border-radius: 12px; width: 100%; max-width: 420px; max-height: 85vh; overflow-y: auto; text-align: left; }
+.close { float: right; font-size: 32px; font-weight: bold; cursor: pointer; color: #999; line-height: 24px; }
+#modalTitle { text-align: center; color: #00a651; margin-bottom: 15px; font-size: 20px; }
+.provider { padding: 15px; margin: 10px 0; background: #f8f8f8; border-radius: 8px; border-left: 4px solid #00a651; }
+.provider b { font-size: 16px; }
+.provider.info { margin: 8px 0 12px 0; color: #555; font-size: 14px; }
+.contact-btns a { display: inline-block; margin: 5px 6px 5px 0; padding: 10px 12px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 14px; color: white; }
+.phone-call { background: #007BFF; }
+.wa-chat { background: #25D366; }
+.wa-call { background: #128C7E; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>RAJA Roadside Assistance JA 🇯🇲</h1>
+
+  <a href="https://wa.me/18769605738" class="btn whatsapp">Get Help Now on WhatsApp</a>
+  <a href="tel:+18769605738" class="btn call">Call Dispatch: 876-960-5738</a>
+
+  <div class="grid">
+    <button class="box towing" onclick="openList('tow')">🚛<br>Towing</button>
+    <button class="box fuel" onclick="openList('fuel')">⛽<br>Fuel</button>
+    <button class="box battery" onclick="openList('battery')">🔋<br>Battery</button>
+    <button class="box tire" onclick="openList('tyre')">🛞<br>Flat Tire</button>
+    <button class="box mechanic" onclick="openList('mechanic')">🔧<br>Mechanic</button>
+  </div>
+</div>
+
+<div id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <div id="providerList"></div>
+  </div>
+</div>
+
+<script>
+const providers = {
+  tow: [
+    { name: "Joe", phone: "18768945740", parish: "May Pen" },
+    { name: "Blacks", phone: "18768062453", parish: "Old Harbour" }
+  ],
+  fuel: [
+    { name: "Joe", phone: "18768945740", parish: "May Pen" },
+    { name: "Blacks", phone: "18768062453", parish: "Old Harbour" }
+  ],
+  battery: [
+    { name: "Joe", phone: "18768945740", parish: "May Pen" },
+    { name: "Blacks", phone: "18768062453", parish: "Old Harbour" }
+  ],
+  tyre: [
+    { name: "Joe", phone: "18768945740", parish: "May Pen" },
+    { name: "Blacks", phone: "18768062453", parish: "Old Harbour" }
+  ],
+  mechanic: [
+    { name: "Joe", phone: "18768945740", parish: "May Pen" },
+    { name: "Blacks", phone: "18768062453", parish: "Old Harbour" }
+  ]
+};
+
+function openList(category) {
+  const modal = document.getElementById('modal');
+  const title = document.getElementById('modalTitle');
+  const list = document.getElementById('providerList');
+  const names = {tow: 'TOWING', fuel: 'FUEL', battery: 'BATTERY', tyre: 'FLAT TIRE', mechanic: 'MECHANIC'};
+
+  title.innerText = names[category] + " PROVIDERS";
+  list.innerHTML = '';
+
+  providers[category].forEach(p => {
+    list.innerHTML += `
+    <div class="provider">
+      <b>${p.name}</b>
+      <div class="info">📍 ${p.parish} | ${p.phone}</div>
+      <div class="contact-btns">
+        <a href="tel:${p.phone}" class="phone-call">📞 Phone Call</a>
+        <a href="https://wa.me/${p.phone}" class="wa-chat">💬 WhatsApp Chat</a>
+        <a href="https://wa.me/${p.phone}" class="wa-call">📱 WhatsApp Call</a>
+      </div>
+    </div>`;
+  });
+  modal.style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+
+document.getElementById('modal').onclick = function(e) {
+  if(e.target.id === 'modal') closeModal();
+}
+</script>
+
+</body>
+</html>
