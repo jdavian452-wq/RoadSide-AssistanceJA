@@ -1,140 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RAJA Roadside Assistance JA | 24/7 Towing Kingston Jamaica</title>
-  <meta name="description" content="24/7 Roadside Assistance in Jamaica. Towing, Battery Boost, Tire Change, Fuel Delivery. Call RAJA now.">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; }
-    html { scroll-behavior: smooth; }
-    body { background: #0a0a0a; color: #fff; line-height: 1.6; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-    
-    /* HEADER */
-    header { background: #000; padding: 15px 0; border-bottom: 4px solid #FFD700; position: sticky; top: 0; z-index: 999; }
-    .header-wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-    .logo { font-size: 26px; font-weight: 900; color: #FFD700; }
-    .logo span { color: #fff; }
-    .phone { font-size: 18px; font-weight: bold; }
-    .phone a { color: #FFD700; text-decoration: none; }
-    
-    /* HERO */
-    .hero { background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2070') center/cover no-repeat; padding: 100px 20px; text-align: center; }
-    .hero h1 { font-size: 48px; color: #FFD700; margin-bottom: 20px; line-height: 1.2; }
-    .hero p { font-size: 20px; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto; }
-    .btn { background: #FFD700; color: #000; padding: 16px 45px; font-size: 20px; font-weight: 900; border: none; border-radius: 8px; text-decoration: none; display: inline-block; cursor: pointer; transition: 0.3s; }
-    .btn:hover { background: #ffe55c; transform: scale(1.05); }
-    .btn-call { background: #25D366; color: #fff; margin-left: 15px; }
-    
-    /* SERVICES */
-    .services { padding: 70px 20px; background: #111; }
-    .services h2 { text-align: center; font-size: 36px; color: #FFD700; margin-bottom: 50px; }
-    .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
-    .service-box { background: #1a1a1a; padding: 35px 25px; border-radius: 12px; border: 1px solid #333; text-align: center; transition: 0.3s; }
-    .service-box:hover { border-color: #FFD700; transform: translateY(-5px); }
-    .service-box h3 { color: #FFD700; font-size: 22px; margin-bottom: 12px; }
-    
-    /* FORM SECTION */
-    .form-section { padding: 70px 20px; background: #000; }
-    .form-section h2 { text-align: center; font-size: 36px; color: #FFD700; margin-bottom: 15px; }
-    .form-section > .container > p { text-align: center; font-size: 18px; margin-bottom: 40px; }
-    .form-container { max-width: 850px; margin: 0 auto; background: #111; padding: 25px; border-radius: 12px; border: 3px solid #FFD700; }
-    iframe { width: 100%; height: 1900px; border: none; border-radius: 8px; }
-    
-    /* CONTACT */
-    .contact { padding: 60px 20px; background: #111; text-align: center; }
-    .contact h2 { font-size: 32px; color: #FFD700; margin-bottom: 20px; }
-    
-    /* FOOTER */
-    footer { background: #000; padding: 30px 20px; text-align: center; border-top: 4px solid #FFD700; }
-    footer p { margin: 8px 0; color: #aaa; }
-    
-    @media(max-width: 768px) {
-      .hero h1 { font-size: 32px; }
-      .hero p { font-size: 16px; }
-      .btn { display: block; margin: 10px auto; width: 80%; }
-      .header-wrap { justify-content: center; text-align: center; }
-      iframe { height: 2100px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAJA Roadside Assistance JA</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background: #f4f4f4; }
+.container { max-width: 500px; margin: 0 auto; background: white; padding: 15px 0 20px 0; text-align: center; }
+
+.banner { width: 100%; max-width: 320px; margin: 0 auto 10px auto; display: block; }
+h1 { color: #d32f2f; font-size: 20px; margin: 10px 15px 15px 15px; }
+
+.btn { display: block; width: 90%; margin: 10px auto; padding: 18px; border-radius: 10px; color: white; text-decoration: none; font-weight: bold; font-size: 17px; }
+.btn:hover { opacity: 0.9; }
+.whatsapp { background: #25D366; }
+.call { background: #007BFF; }
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 15px; }
+.box { padding: 22px 10px; border-radius: 12px; font-size: 16px; font-weight: bold; cursor: pointer; border: 2px solid; background: white; }
+.box:active { transform: scale(0.97); } /* so you know button clicked */
+.towing { border-color: #ff9999; color: #d32f2f; }
+.fuel { border-color: #ffcc66; color: #e65100; }
+.battery { border-color: #66cc66; color: #2e7d32; }
+.tire { border-color: #6699ff; color: #1565c0; }
+.mechanic { border-color: #888; color: #424242; grid-column: span 2; }
+
+#modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; padding: 15px; }
+.modal-content { background: white; padding: 20px; border-radius: 12px; width: 100%; max-width: 420px; max-height: 85vh; overflow-y: auto; text-align: left; }
+.close { float: right; font-size: 32px; font-weight: bold; cursor: pointer; color: #999; line-height: 24px; }
+#modalTitle { text-align: center; color: #00a651; margin-bottom: 15px; font-size: 20px; }
+.provider { padding: 15px; margin: 10px 0; background: #f8f8f8; border-radius: 8px; border-left: 4px solid #00a651; }
+.provider b { font-size: 16px; }
+.provider.info { margin: 8px 0 12px 0; color: #555; font-size: 14px; }
+.contact-btns a { display: inline-block; margin: 5px 6px 5px 0; padding: 10px 12px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 14px; color: white; }
+.phone-call { background: #007BFF; }
+.wa-chat { background: #25D366; }
+.wa-call { background: #128C7E; }
+</style>
 </head>
 <body>
 
-  <header>
-    <div class="container header-wrap">
-      <div class="logo">RAJA <span>Roadside Assistance JA</span></div>
-      <div class="phone">24/7: <a href="tel:+1876XXXYYYY">876-XXX-YYYY</a></div>
-    </div>
-  </header>
+<div class="container">
+  <img src="banner.jpg" alt="RAJA Roadside" class="banner">
 
-  <section class="hero">
-    <div class="container">
-      <h1>Stuck on the Road? We Got You.</h1>
-      <p>Fast, Reliable 24/7 Roadside Assistance Across Jamaica. Average response time: 30 minutes.</p>
-      <a href="#request" class="btn">REQUEST HELP NOW</a>
-      <a href="tel:+1876XXXYYYY" class="btn btn-call">CALL NOW</a>
-    </div>
-  </section>
+  <h1>RAJA Roadside Assistance JA 🇯🇲</h1>
 
-  <section class="services">
-    <div class="container">
-      <h2>Our Services</h2>
-      <div class="service-grid">
-        <div class="service-box">
-          <h3>🚛 Towing</h3>
-          <p>Flatbed and wheel lift towing. Accident recovery. Island-wide service.</p>
-        </div>
-        <div class="service-box">
-          <h3>🔋 Battery Boost</h3>
-          <p>Dead battery? We’ll jumpstart you and get you back on the road.</p>
-        </div>
-        <div class="service-box">
-          <h3>🛞 Tire Change</h3>
-          <p>Flat tire? Our team will change it to your spare, fast and safe.</p>
-        </div>
-        <div class="service-box">
-          <h3>⛽ Fuel Delivery</h3>
-          <p>Ran out of gas? We deliver fuel directly to your location.</p>
-        </div>
-        <div class="service-box">
-          <h3>🔑 Lockout Service</h3>
-          <p>Keys locked in the car? We’ll get you back in without damage.</p>
-        </div>
-        <div class="service-box">
-          <h3>🔧 Minor Repairs</h3>
-          <p>On-site minor mechanical fixes to get you moving again.</p>
-        </div>
+  <a href="https://docs.google.com/forms/d/e/PUT_YOUR_FORM_LINK_HERE/viewform" target="_blank" class="btn whatsapp">Request Help Now</a>
+  <a href="tel:+18769605738" class="btn call">Call Dispatch: 876-960-5738</a>
+
+  <div class="grid">
+    <button type="button" class="box towing" onclick="openList('tow')">🚛<br>Towing</button>
+    <button type="button" class="box fuel" onclick="openList('fuel')">⛽<br>Fuel</button>
+    <button type="button" class="box battery" onclick="openList('battery')">🔋<br>Battery</button>
+    <button type="button" class="box tire" onclick="openList('tyre')">🛞<br>Flat Tire</button>
+    <button type="button" class="box mechanic" onclick="openList('mechanic')">🔧<br>Mechanic</button>
+  </div>
+</div>
+
+<div id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <div id="providerList"></div>
+  </div>
+</div>
+
+<script>
+const providers = {
+  tow: [
+    { name: "Joe", phone: "18768945740", parish: "May Pen" },
+    { name: "Blacks", phone: "18768062453", parish: "Old Harbour" }
+  ],
+  fuel: [
+    { name: "Joe", phone: "18768945740", parish: "May Pen" },
+    { name: "Blacks", phone: "18768062453", parish: "Old Harbour" }
+  ],
+  battery: [
+    { name: "Joe", phone: "18768945740", parish: "May Pen" },
+    { name: "Blacks", phone: "18768062453", parish: "Old Harbour" }
+  ],
+  tyre: [
+    { name: "Joe", phone: "18768945740", parish: "May Pen" },
+    { name: "Blacks", phone: "18768062453", parish: "Old Harbour" }
+  ],
+  mechanic: [
+    { name: "Joe", phone: "18768945740", parish: "May Pen" },
+    { name: "Blacks", phone: "18768062453", parish: "Old Harbour" }
+  ]
+};
+
+function openList(category) {
+  const modal = document.getElementById('modal');
+  const title = document.getElementById('modalTitle');
+  const list = document.getElementById('providerList');
+  const names = {tow: 'TOWING', fuel: 'FUEL', battery: 'BATTERY', tyre: 'FLAT TIRE', mechanic: 'MECHANIC'};
+
+  title.innerText = names[category] + " PROVIDERS";
+  list.innerHTML = '';
+
+  providers[category].forEach(p => {
+    list.innerHTML += `
+    <div class="provider">
+      <b>${p.name}</b>
+      <div class="info">📍 ${p.parish} | ${p.phone}</div>
+      <div class="contact-btns">
+        <a href="tel:${p.phone}" class="phone-call">📞 Phone Call</a>
+        <a href="https://wa.me/${p.phone}" target="_blank" class="wa-chat">💬 WhatsApp Chat</a>
+        <a href="https://wa.me/${p.phone}" target="_blank" class="wa-call">📱 WhatsApp Call</a>
       </div>
-    </div>
-  </section>
+    </div>`;
+  });
+  modal.style.display = 'flex';
+}
 
-  <section class="form-section" id="request">
-    <div class="container">
-      <h2>Request Roadside Assistance</h2>
-      <p>Fill out the form below. We’ll call you back in under 5 minutes.</p>
-      <div class="form-container">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdp2VATOHRzyLw7zBESpfZWshogAHOVuKe33Gzrey-8i2OJaA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-      </div>
-    </div>
-  </section>
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
 
-  <section class="contact">
-    <div class="container">
-      <h2>Need Help Immediately?</h2>
-      <p>Don’t wait. Call us directly.</p>
-      <a href="tel:+1876XXXYYYY" class="btn">CALL 876-XXX-YYYY</a>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <p><strong>RAJA Roadside Assistance JA</strong></p>
-      <p>Serving Kingston, St. Andrew, St. Catherine & All of Jamaica</p>
-      <p>Available 24 Hours, 7 Days a Week</p>
-      <p>© 2026 RAJA. All Rights Reserved.</p>
-    </div>
-  </footer>
+document.getElementById('modal').onclick = function(e) {
+  if(e.target.id === 'modal') closeModal();
+}
+</script>
 
 </body>
 </html>
