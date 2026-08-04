@@ -3,7 +3,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,75 +10,73 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RAJA Roadside Assistance JA</title>
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: Arial, sans-serif; background: #f4f4f4; text-align: center; }
-.container { max-width: 500px; margin: 0 auto; background: white; padding-bottom: 30px; }
-.banner img { width: 100%; display: block; }
-h1 { color: #d32f2f; font-size: 20px; margin: 15px 10px; }
-.btn { display: block; width: 90%; margin: 12px auto; padding: 16px; border-radius: 10px; color: white; text-decoration: none; font-weight: bold; font-size: 16px; }
+body { font-family: Arial; margin: 0; background: #f4f4f4; text-align: center; }
+.container { max-width: 500px; margin: 0 auto; background: white; padding: 15px 0 30px; }
+.logo { color: #d32f2f; font-size: 22px; font-weight: bold; margin: 5px 0 15px; } /* tight spacing */
+.btn { display: block; width: 90%; margin: 10px auto; padding: 16px; border-radius: 10px; color: white; text-decoration: none; font-weight: bold; font-size: 16px; }
 .whatsapp { background: #25D366; }
 .call { background: #007BFF; }
-.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 15px; }
-.box { padding: 20px 10px; border-radius: 12px; font-size: 15px; font-weight: bold; cursor: pointer; border: 2px solid; background:white; }
-.towing { border-color: #ff9999; color: #d32f2f; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 15px; }
+.raja-btn { padding: 20px 10px; border-radius: 12px; font-size: 15px; font-weight: bold; cursor: pointer; border: 2px solid; background:white; }
+.tow { border-color: #ff9999; color: #d32f2f; }
 .fuel { border-color: #ffcc66; color: #e65100; }
-.battery { border-color: #66cc66; color: #2e7d32; }
-.tire { border-color: #6699ff; color: #1565c0; }
+.batt { border-color: #66cc66; color: #2e7d32; }
+.tyre { border-color: #6699ff; color: #1565c0; }
 .mechanic { border-color: #888; color: #424242; grid-column: span 2; }
-#modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); justify-content: center; align-items: center; padding: 10px; }
-.modal-content { background: white; padding: 20px; border-radius: 12px; width: 100%; max-width: 400px; max-height: 80vh; overflow-y: auto; text-align: left; }
-.close { float: right; font-size: 28px; font-weight: bold; cursor: pointer; color: #aaa; }
-#modalTitle { text-align:center; color:#00a651; margin-bottom:15px; }
-.provider { padding: 12px; margin: 8px 0; background: #f1f1f1; border-radius: 8px; }
-.provider a { text-decoration: none; font-weight: bold; font-size:15px; margin-right:12px; }
-.call-link { color: #007BFF; }
-.wa-link { color: #25D366; }
+#rajaModal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.8); z-index: 99999; align-items: center; justify-content: center; }
+.modalBox { background: white; padding: 20px; border-radius: 12px; width: 90%; max-width: 400px; max-height: 80vh; overflow-y: auto; text-align: left; }
+.closeBtn { float: right; font-size: 28px; cursor: pointer; }
+.providerCard { padding: 12px; margin: 8px 0; background: #f1f1f1; border-radius: 8px; }
+.providerCard a { margin-right:12px; font-weight:bold; text-decoration:none; }
 </style>
 </head>
 <body>
 <div class="container">
-
-  <div class="banner">
-    <img src="banner.jpg" alt="RAJA Roadside Assistance JA">
-  </div>
-
-  <h1>RAJA Roadside Assistance JA 🇯🇲</h1>
+  <div class="logo">RAJA Roadside Assistance JA 🇯🇲</div>
 
   <a href="https://wa.me/18769605738" class="btn whatsapp">Get Help Now on WhatsApp</a>
   <a href="tel:8769605738" class="btn call">Call Dispatch: 876-960-5738</a>
 
   <div class="grid">
-    <button class="box towing" onclick="openList('tow')">🚛<br>Towing</button>
-    <button class="box fuel" onclick="openList('fuel')">⛽<br>Fuel</button>
-    <button class="box battery" onclick="openList('battery')">🔋<br>Battery</button>
-    <button class="box tire" onclick="openList('tyre')">🛞<br>Flat Tire</button>
-    <button class="box mechanic" onclick="openList('mechanic')">🔧<br>Mechanic</button>
+    <button class="raja-btn tow" onclick="rajaOpen('tow')">🚛<br>Towing</button>
+    <button class="raja-btn fuel" onclick="rajaOpen('fuel')">⛽<br>Fuel</button>
+    <button class="raja-btn batt" onclick="rajaOpen('battery')">🔋<br>Battery</button>
+    <button class="raja-btn tyre" onclick="rajaOpen('tyre')">🛞<br>Flat Tire</button>
+    <button class="raja-btn mechanic" onclick="rajaOpen('mechanic')">🔧<br>Mechanic</button>
   </div>
 </div>
 
-<div id="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h2 id="modalTitle"></h2>
-    <div id="providerList"></div>
+<div id="rajaModal" onclick="rajaClose(event)">
+  <div class="modalBox" onclick="event.stopPropagation()">
+    <span class="closeBtn" onclick="rajaClose()">&times;</span>
+    <h2 id="rajaTitle" style="text-align:center; color:#00a651;"></h2>
+    <div id="rajaList"></div>
   </div>
 </div>
 
 <script>
-const providers = {
-  tow: [
-    { name: "Joe Towing", phone: "8768945740", parish: "May Pen" },
-    { name: "Blacks Towing", phone: "8768062453", parish: "Old Harbour" },
-    { name: "Add Tow 3", phone: "8760000000", parish: "Parish" },
-    { name: "Add Tow 4", phone: "8760000000", parish: "Parish" },
-    { name: "Add Tow 5", phone: "8760000000", parish: "Parish" }
-  ],
-  fuel: [
-    { name: "Add Fuel 1", phone: "8760000000", parish: "Parish" },
-    { name: "Add Fuel 2", phone: "8760000000", parish: "Parish" },
-    { name: "Add Fuel 3", phone: "8760000000", parish: "Parish" },
-    { name: "Add Fuel 4", phone: "8760000000", parish: "Parish" },
-    { name: "Add Fuel 5", phone: "8760000000", parish: "Parish" }
-  ],
-  battery: [
-    { name: "Joe Battery", phone: "8768945740", parish: "May Pen"
+const rajaData = {
+  tow: [{name:"Joe Towing", phone:"8768945740", parish:"May Pen"}, {name:"Blacks Towing", phone:"8768062453", parish:"Old Harbour"}, {name:"Add 3", phone:"8760000", parish:"Parish"}, {name:"Add 4", phone:"8760000", parish:"Parish"}, {name:"Add 5", phone:"8760000", parish:"Parish"}],
+  fuel: [{name:"Add 1", phone:"8760000", parish:"Parish"}, {name:"Add 2", phone:"8760000", parish:"Parish"}, {name:"Add 3", phone:"8760000", parish:"Parish"}, {name:"Add 4", phone:"8760000", parish:"Parish"}, {name:"Add 5", phone:"8760000", parish:"Parish"}],
+  battery: [{name:"Joe Battery", phone:"8768945740", parish:"May Pen"}, {name:"Blacks Battery", phone:"8768062453", parish:"Old Harbour"}, {name:"Add 3", phone:"8760000", parish:"Parish"}, {name:"Add 4", phone:"8760000", parish:"Parish"}, {name:"Add 5", phone:"8760000", parish:"Parish"}],
+  tyre: [{name:"Add 1", phone:"8760000", parish:"Parish"}, {name:"Add 2", phone:"8760000", parish:"Parish"}, {name:"Add 3", phone:"8760000", parish:"Parish"}, {name:"Add 4", phone:"8760000", parish:"Parish"}, {name:"Add 5", phone:"8760000", parish:"Parish"}],
+  mechanic: [{name:"Joe Mechanic", phone:"8768945740", parish:"May Pen"}, {name:"Blacks Mechanic", phone:"8768062453", parish:"Old Harbour"}, {name:"Add 3", phone:"8760000", parish:"Parish"}, {name:"Add 4", phone:"8760000", parish:"Parish"}, {name:"Add 5", phone:"8760000", parish:"Parish"}]
+};
+function rajaOpen(cat){
+  const names = {tow:"TOWING", fuel:"FUEL", battery:"BATTERY", tyre:"FLAT TIRE", mechanic:"MECHANIC"};
+  document.getElementById("rajaTitle").innerText = names[cat] + " PROVIDERS";
+  let html = "";
+  rajaData[cat].forEach(p=>{
+    html += `<div class="providerCard"><b>${p.name}</b><br>📍 ${p.parish} | ${p.phone}<br><br><a href="tel:${p.phone}" style="color:#007BFF">📞 Call</a> <a href="https://wa.me/1${p.phone}" style="color:#25D366">💬 WhatsApp</a></div>`;
+  });
+  document.getElementById("rajaList").innerHTML = html;
+  document.getElementById("rajaModal").style.display = "flex";
+}
+function rajaClose(e){
+  if(!e || e.target.id === "rajaModal" || e.target.className === "closeBtn"){
+    document.getElementById("rajaModal").style.display = "none";
+  }
+}
+</script>
+</body>
+</html>
