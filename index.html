@@ -7,15 +7,15 @@
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: Arial, sans-serif; background: #f4f4f4; }
-.container { max-width: 500px; margin: 0 auto; background: white; padding: 15px 0 40px 0; text-align: center; min-height: 100vh; }
+.container { max-width: 500px; margin: 0 auto; background: white; padding: 0 0 20px 0; text-align: center; } /* REMOVED min-height */
 
-.logo { padding: 20px 15px 10px 15px; } /* NEW: center wrapper */
-.logo img { width: 160px; height: auto; display: block; margin: 0 auto; } /* NEW: centers the image */
-.logo h1 { color: #d32f2f; font-size: 22px; margin: 10px 0 0 0; text-align: center; } /* Centered text */
+.banner { width: 100%; display: block; }
+h1 { color: #d32f2f; font-size: 20px; margin: 15px 15px 15px 15px; }
 
-.btn { display: block; width: 90%; margin: 12px auto; padding: 18px; border-radius: 10px; color: white; text-decoration: none; font-weight: bold; font-size: 17px; }
+.btn { display: block; width: 90%; margin: 10px auto; padding: 18px; border-radius: 10px; color: white; text-decoration: none; font-weight: bold; font-size: 17px; }
 .whatsapp { background: #25D366; }
 .call { background: #007BFF; }
+
 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 15px; }
 .box { padding: 22px 10px; border-radius: 12px; font-size: 16px; font-weight: bold; cursor: pointer; border: 2px solid; background: white; }
 .towing { border-color: #ff9999; color: #d32f2f; }
@@ -23,6 +23,7 @@ body { font-family: Arial, sans-serif; background: #f4f4f4; }
 .battery { border-color: #66cc66; color: #2e7d32; }
 .tire { border-color: #6699ff; color: #1565c0; }
 .mechanic { border-color: #888; color: #424242; grid-column: span 2; }
+
 #modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; padding: 15px; }
 .modal-content { background: white; padding: 20px; border-radius: 12px; width: 100%; max-width: 420px; max-height: 85vh; overflow-y: auto; text-align: left; }
 .close { float: right; font-size: 32px; font-weight: bold; cursor: pointer; color: #999; line-height: 24px; }
@@ -39,11 +40,9 @@ body { font-family: Arial, sans-serif; background: #f4f4f4; }
 <body>
 
 <div class="container">
+  <img src="banner.jpg" alt="RAJA Roadside" class="banner">
 
-  <div class="logo"> <!-- NEW: logo wrapper -->
-    <img src="logo.png" alt="RAJA Logo"> <!-- Upload your logo.png to github -->
-    <h1>RAJA Roadside Assistance JA 🇯🇲</h1>
-  </div>
+  <h1>RAJA Roadside Assistance JA 🇯🇲</h1>
 
   <a href="https://docs.google.com/forms/d/e/PUT_YOUR_FORM_LINK_HERE/viewform" target="_blank" class="btn whatsapp">Request Help Now</a>
   <a href="tel:+18769605738" class="btn call">Call Dispatch: 876-960-5738</a>
@@ -93,34 +92,4 @@ function openList(category) {
   const modal = document.getElementById('modal');
   const title = document.getElementById('modalTitle');
   const list = document.getElementById('providerList');
-  const names = {tow: 'TOWING', fuel: 'FUEL', battery: 'BATTERY', tyre: 'FLAT TIRE', mechanic: 'MECHANIC'};
-
-  title.innerText = names[category] + " PROVIDERS";
-  list.innerHTML = '';
-
-  providers[category].forEach(p => {
-    list.innerHTML += `
-    <div class="provider">
-      <b>${p.name}</b>
-      <div class="info">📍 ${p.parish} | ${p.phone}</div>
-      <div class="contact-btns">
-        <a href="tel:${p.phone}" class="phone-call">📞 Phone Call</a>
-        <a href="https://wa.me/${p.phone}" class="wa-chat">💬 WhatsApp Chat</a>
-        <a href="https://wa.me/${p.phone}" class="wa-call">📱 WhatsApp Call</a>
-      </div>
-    </div>`;
-  });
-  modal.style.display = 'flex';
-}
-
-function closeModal() {
-  document.getElementById('modal').style.display = 'none';
-}
-
-document.getElementById('modal').onclick = function(e) {
-  if(e.target.id === 'modal') closeModal();
-}
-</script>
-
-</body>
-</html>
+  const names = {tow: 'TOW
