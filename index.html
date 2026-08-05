@@ -8,7 +8,49 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { width: 100%; height: 100%; }
 body { font-family: Arial, sans-serif; background: #f4f4f4; }
-.container { width: 100%; margin: 0 auto; background: white; padding: 15px 0 40px 0; text-align: center; min-height: 100vh; }
+/* 1. Kill all margins and make it full screen */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff; /* change to #000 if you want black bg */
+  overflow-x: hidden;
+}
+
+/* 2. Main container fills screen */
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* 3. Logo matches button width */
+.logo {
+  width: 100%;
+  max-width: 400px; /* same as button max width */
+  height: auto;
+  display: block;
+  margin: 20px auto; /* centers it */
+}
+
+/* 4. Button matches logo width */
+.btn {
+  width: 100%;
+  max-width: 400px; /* same as logo */
+  display: block;
+  margin: 15px auto;
+  padding: 16px;
+  border-radius: 12px;
+  border: none;
+  background: #FFD700; /* yellow like roadside */
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+}
+  .container { width: 100%; margin: 0 auto; background: white; padding: 15px 0 40px 0; text-align: center; min-height: 100vh; }
 .logo { display: block; max-width: 140px; width: 60%; height: auto; margin: 10px auto 5px auto; }
 h1 { color: #d32f2f; font-size: 22px; margin: 10px 15px 20px 15px; }
 .btn { display: block; width: 90%; margin: 12px auto; padding: 18px; color: white; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 16px; }
