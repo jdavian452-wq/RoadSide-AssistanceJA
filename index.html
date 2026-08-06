@@ -4,9 +4,21 @@
 <title>RAJA Roadside JA</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-body {background: #000; margin: 0; padding: 20px; text-align: center;}
-h1 {color: #00FF00; font-family: Arial; font-size: 24px;}
-img {width: 90%; max-width: 400px; margin: 20px auto; display: block; border-radius: 15px;}
+body {background: #000; margin: 0; padding: 20px; text-align: center; color: white;}
+h1 {color: #00FF00; font-family: Arial; font-size: 24px; margin-bottom: 10px;}
+
+.logo-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+.logo-row img {
+  width: 45%;
+  max-width: 200px;
+  border-radius: 15px;
+}
+
 video {width: 95%; max-width: 500px; margin: 20px auto; display: block; border-radius: 15px;}
 </style>
 </head>
@@ -14,15 +26,18 @@ video {width: 95%; max-width: 500px; margin: 20px auto; display: block; border-r
 
 <h1>ROADSIDE ASSISTANCE JA 🇯🇲</h1>
 
-<!-- LOGO -->
-<img src="logo.png" alt="RAJA Logo">
+<!-- 2 LOGOS SIDE BY SIDE -->
+<div class="logo-row">
+  <img src="logo.png" alt="RAJA Logo 1">
+  <img src="logo.png" alt="RAJA Logo 2">
+</div>
 
 <!-- VIDEO 1 -->
 <video controls autoplay muted loop playsinline>
   <source src="1785809705336.mp4" type="video/mp4">
 </video>
 
-<!-- VIDEO 2 - NOTE THE %20 FOR THE SPACE -->
+<!-- VIDEO 2 -->
 <video controls autoplay muted loop playsinline>
   <source src="RAJA%20PROMO%20video" type="video/mp4">
 </video>
