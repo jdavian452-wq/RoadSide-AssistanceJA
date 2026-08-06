@@ -6,21 +6,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 body {background: #000; color: white; text-align: center; font-family: Arial; margin: 0; padding: 20px;}
-h1 {color: #00FF00; font-size: 24px;}
-img, video {width: 95%; max-width: 500px; margin: 15px auto; display: block; border-radius: 15px;}
+h1 {color: #00FF00; font-size: 24px; margin-bottom: 20px;}
+.container {display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;}
+.container img {width: 45%; max-width: 400px; border-radius: 20px;}
+@media (max-width: 768px) {.container img {width: 95%;}}
 </style>
 </head>
 <body>
 
 <h1>ROADSIDE ASSISTANCE JA 🇯🇲</h1>
 
-<!-- LOGO -->
-<img src="logo.png" alt="RAJA Logo">
-
-<!-- VIDEO -->
-<video controls autoplay muted loop playsinline>
-  <source src="1785809705336.mp4" type="video/mp4">
-</video>
+<div class="container">
+  <!-- LOGO -->
+  <img src="logo.png" alt="RAJA Logo">
+  
+  <!-- APP SCREEN -->
+  <img src="app-screen.png" alt="RAJA App">
+</div>
 
 </body>
 </html>
